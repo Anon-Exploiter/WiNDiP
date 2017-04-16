@@ -33,7 +33,7 @@ Editing Name Wont Make You The Author
 				background-color: black;
 			}
 			textarea {
-				color: white;
+				color: lawngreen;
 				background-color: black; 
 				font-family: Comic Sans Ms; 
 				font-size: 100%;
